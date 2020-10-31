@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*let demo={
+              name:"shairy",
+              age:30,
+              "last name":"kalra"
+
+          }
+          alert(demo.name);
+          demo.result="pass";
+          alert(demo.result);
+          delete demo.age;
+          alert(demo.age);
+          demo.name="abhi";
+          alert(demo.name);
+          alert(demo["last name"]);
+          delete demo["last name"];
+          alert(demo["last name"]);
+          let abc = prompt("What do you want to know about the user?", "last name");
+          alert( demo[abc] );
+          for (let key in demo) {
+              alert( key );  //keys
+              alert( demo[key] ); //values
+          } */
+
+      // let user={};
+      // user.name="shairy";
+      // user.lastName="kalra";
+      // alert(user.name);
+      // alert(user.lastName);
+      // user.name="abhi";
+      // alert(user.name);
+
+      // delete user.lastName;
+      // alert(user.lastName);
+
+      /*let user = {
+        name: "John",
+        sizes: {
+          height: 182,
+          width: 50,
+        },
+        getData: function () {
+          alert("hello");
+        },
+        showData() {
+          alert(this.name + this.sizes.height);
+        },
+      };
+      user.getData();
+      user.showData();
+      alert(user.sizes.width);*/
+
+      //   let clone = {}; // the new empty object
+      //   // let's copy all user properties into it
+      //   for (let key in user) {
+      //     clone[key] = user[key];
+      //   }
+      //   // now clone is a fully independent object with the same content
+      //   clone.name = "Pete"; // changed the data in it
+      //   clone.sizes.height = "34";
+      //   alert(user.name); // still John in the original object
+      //   alert(user.sizes.height);
+      // let clone = Object.assign({}, user);
+      // alert(clone.name);
+      //clone.getData();
+
+      /*let a = "";
+      let b = "";
+      let calculator = {
+        getData: function () {
+          this.a = parseInt(prompt("Enter First Number"));
+          this.b = parseInt(prompt("Enter Second Number"));
+        },
+        sum: function () {
+          return this.a + this.b;
+        },
+        minus: function () {
+          return this.a - this.b;
+        },
+        multiply: function () {
+          return this.a * this.b;
+        },
+        divide: function () {
+          return this.a / this.b;
+        },
+      };
+      calculator.getData();
+      alert(calculator.sum());
+      alert(calculator.minus());
+      alert(calculator.multiply());
+      alert(calculator.divide());*/
+
+      //constructor
+
+      /* function Calculator() {
+        this.read = function () {
+          this.a = +prompt("a?", 0);
+          this.b = +prompt("b?", 0);
+        };
+
+        this.sum = function () {
+          return this.a + this.b;
+        };
+
+        this.mul = function () {
+          return this.a * this.b;
+        };
+      }
+
+      let calculator = new Calculator();
+      calculator.read();
+
+      alert("Sum=" + calculator.sum());
+      alert("Mul=" + calculator.mul());*/
+      // Factory Function
+      /* let a = "";
+      let b = "";
+      function Calc() {
+        a = +prompt("a?", 0);
+        b = +prompt("b?", 0);
+        const calculator = read(a, b);
+        calculator.sum();
+        calculator.mul();
+      }
+      Calc();
+
+      function read(a, b) {
+        return {
+          a,
+          b,
+          sum: function () {
+            console.log(a + b);
+          },
+          mul: function () {
+            console.log(a * b);
+          },
+        };
+      }*/
+      // array
+      /*
+      let salaries = {
+        John: 100,
+        Pete: 300,
+        Mary: 250,
+      };
+      let add = 0;
+      for (sum in salaries) {
+        add += salaries[sum];
+      }
+      alert(add);*/
+
+      // jSON
+      /*let student = {
+        name: "John",
+        age: 30,
+        isAdmin: false,
+        courses: ["html", "css", "js"],
+        wife: null,
+      };
+      let json = JSON.stringify(student);
+      alert(typeof json); // we've got a string!
+      alert(json);
+      let jobj = JSON.parse(json);
+      alert(jobj.name);*/
+
+      //GETEER SETTER
+      /* let user = {
+        name: "John",
+        surname: "Smith",
+
+        get fullName() {
+          return this.name + "  " + this.surname;
+        },
+        set fullName(value) {
+          [this.name, this.surname] = value.split(" ");
+        },
+        set fullName1(obj) {
+          this.name = obj.firstName;
+          this.surname = obj.lastName;
+        },
+      };
+
+      alert(user.fullName); // John Smith
+      user.fullName = "shairy kalra";
+      alert(user.name);
+      alert(user.fullName);
+      user.fullName1 = { firstName: "abhi", lastName: "bhanot" };
+      alert(user.name);
+      alert(user.fullName);*/
+      // class with get and set
+      /*class User {
+        constructor(name) {
+          this.name = name;
+        }
+        sayHi() {
+          alert(this.name);
+        }
+        get name() {
+          return this._name;
+        }
+        set name(value) {
+          if (value.length < 4) {
+            alert("Name is too short.");
+            return;
+          }
+          this._name = value;
+        }
+      }
+
+      let user = new User("John");
+      alert(user.name); // John
+      user.sayHi();
+      let user1 = new User(""); // Name is too short.
+      alert(user1.name);*/
+      //Inheritance
+      class Animal {
+        constructor(name) {
+          this.speed = 0;
+          this.name = name;
+        }
+        run(speed) {
+          this.speed = speed;
+          return this.name + " runs with speed " + this.speed;
+        }
+        stop() {
+          this.speed = 0;
+          return this.name + " stands still ";
+        }
+      }
+      class Rabbit extends Animal {
+        hide() {
+          return this.name + "hides";
+        }
+      }
+      let obj = new Rabbit("My animal");
+      alert(obj.run(50));
+      alert(obj.stop());
+      alert(obj.hide());
+    </script>
+  </body>
+</html>
